@@ -43,7 +43,7 @@ gulp.task('server', function(done) {
           server: {
                baseDir: ['dist', 'app']
           }
-     );
+     })
      done();
 })
 
