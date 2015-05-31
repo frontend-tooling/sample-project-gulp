@@ -40,5 +40,5 @@ gulp.task('default', gulp.series('clean', gulp.parallel('styles', 'scripts'), 's
           gulp.watch(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'], gulp.parallel('scripts'));
           gulp.watch('app/styles/**/*.less', gulp.parallel('styles'));
           gulp.watch('dist/**/*', bSync.reload);
-     });
+     })
 );
