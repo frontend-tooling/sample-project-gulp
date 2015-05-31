@@ -19,9 +19,8 @@
   "devDependencies": {
     "browser-sync": "^2.7.1",
     "del": "^1.1.1",
-    "gulp": "file:../../../../../var/folders/50/nnpd18vn3rzbd3nl3jcp69180000gn/T/npm-3092-b6dd87c7/1431980308670-0.7880744175054133/78751c834e1c7365f60dff7094c1d7e492b11997",
+    "gulp": "git://github.com/gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^2.1.0",
-    "gulp-cli": "file:../../../../../var/folders/50/nnpd18vn3rzbd3nl3jcp69180000gn/T/npm-3546-3e6b9167/1431980668967-0.5886426330544055/d162f7c9fa78d998f33228fbd8362968511e726e",
     "gulp-concat": "^2.5.2",
     "gulp-jshint": "^1.9.4",
     "gulp-jslint": "^0.2.2",
