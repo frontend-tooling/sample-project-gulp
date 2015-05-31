@@ -1,0 +1,48 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: @fontColor;
+	color: @bgColor;
+
+	border: 1px solid @border;
+	border-bottom: none;
+}
+
+li {
+	border-bottom: 1px solid @border;
+	overflow: hidden;
+}
+
+li > * {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+label{
+	padding-left: 10px;
+	margin-left: 40px;
+	border-left: 1px solid @border;
+}
+
+input[type="checkbox"] {
+	margin: 15px 10px 10px;
+	padding: 0;
+	float: left;
+	width: 20px;
+}
+
+input[type="checkbox"]:checked + label {
+	font-style: italic;
+	text-decoration: line-through;
+}
+
+input[type="text"] {
+	width: 100%;
+	border: 1px solid @border;
+	border-top: none;
+	padding: 10px;
+	box-sizing: border-box;
+	color: black;
+}
