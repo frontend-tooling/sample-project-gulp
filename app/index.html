@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= projecTitle %></title>
+    <title>Todo App</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- bower:js -->
-    <!-- endbower -->
+    <section>
+	    <h1>Hello, dear reader!</h1>
+	    <p>
+	        This is the sample project we are going to use throughout our workshop. Feel free to fiddle around
+	        and to add your own stuff on the go!
+	    </p>
+		<ul id="todos">
+			<li><input id="cb1" type="checkbox"><label for="cb1">Learn Gulp</label></li>
+			<li><input id="cb2" type="checkbox"><label for="cb2">Rock the world</label></li>
+		</ul>
+		<form>
+			<input id="todo" type="text" placeholder="Enter a new Todo and save it by pressing Enter">
+		</form>
+	</section>
     <script src="scripts/main.min.js"></script>
 </body>
 </html>

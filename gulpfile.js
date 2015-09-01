@@ -13,36 +13,54 @@ var mainBowerFiles = require('main-bower-files');
 
 var cached      = require('gulp-cached');
 var remember    = require('gulp-remember');
+var sourcemaps  = require('gulp-sourcemaps');
 var combiner    = require('stream-combiner2');
-var through     = require('throug2');
+var through     = require('through2');
+
+var isprod = false;
+
+var noop = function() {
+    return through.obj();
+};
+
+var dev = function(task) {
+    return isprod ? noop() : task;
+};
+
+var prod = function(task) {
+    return isprod ? task : noop();
+};
 
 gulp.task('test', function() {
   return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
-    .pipe(chached('hint'))
+    .pipe(cached('hint'))
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
 });
 
-
 gulp.task('scripts',
   gulp.series('test', function scriptsInternal() {
-    var glob = mainBowerFiles('*.js');
+    var glob = mainBowerFiles('**/*.js');
     glob.push('app/scripts/**/*.js');
     return gulp.src(glob)
-      .pipe(cached('ugly'))
+      .pipe(sourcemaps.init())
+      //.pipe(cached('ugly'))
       .pipe(uglify())
-      .pipe(remember('ugly'))
+      //.pipe(remember('ugly'))
       .pipe(concat('main.min.js'))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest('dist/scripts'));
   })
 );
 
 gulp.task('styles', function() {
   return gulp.src('app/styles/main.less')
+    .pipe(sourcemaps.init())
     .pipe(less())
     .pipe(minifyCSS())
     .pipe(prefix())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/styles'));
 });
 
@@ -69,7 +87,7 @@ gulp.task('deps', function() {
 
 gulp.task('default',
   gulp.series('clean',
-  gulp.parallel('styles', 'scripts', 'deps'),
+  gulp.parallel('styles', 'scripts'),
   'server',
   function watcher(done) {
     gulp.watch(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'], gulp.parallel('scripts'));
