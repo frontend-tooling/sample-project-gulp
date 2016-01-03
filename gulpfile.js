@@ -65,7 +65,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('clean', function(done) {
-  del(['dist'], done);
+  return del(['dist']);
 });
 
 gulp.task('server', function(done) {
