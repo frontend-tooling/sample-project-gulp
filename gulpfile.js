@@ -77,8 +77,6 @@ gulp.task('server', function(done) {
   done();
 });
 
-var wiredep  = require('wiredep').stream;
-
 gulp.task('deps', function() {
   return gulp.src('app/**/*.html')
     .pipe(wiredep())
