@@ -29,5 +29,8 @@
     "gulp-uglify": "^1.1.0",
     "main-bower-files": "^2.9.0",
     "wiredep": "^3.0.0-beta"
+  },
+  "dependencies": {
+    "jshint": "^2.9.2"
   }
 }
